@@ -1,5 +1,6 @@
 //componente que devuelve los gifs con sus titulos
 //Exportamos la función al GifGrid
+import PropTypes from 'prop-types'
 export const GifItem = ({title, url}) => {
     return ( 
         <div className="card">
@@ -7,4 +8,9 @@ export const GifItem = ({title, url}) => {
             <p>{title}</p>
         </div>
     );
+}
+
+GifItem.propTypes= {
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
 }

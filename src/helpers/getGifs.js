@@ -5,6 +5,8 @@ Tomamos la data que viene con las imagenes (en postman)
 Mapeamos la data y tomamos tres propiedades que necesitamos.
 Retornamos gifs
 */
+import 'whatwg-fetch' // npm install whatwg-fetch
+
 export const getGifs = async (category) => {
     const url = `https://api.giphy.com/v1/gifs/search?api_key=vQb0C8eXdP86sOya0C285sFwfl7BDiz9&q=${category}&limit=5`
     const resp = await fetch(url);

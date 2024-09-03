@@ -22,6 +22,8 @@ Le damos una propiedad "category" con el nombre de la categoria tambien
 import React, { useState } from 'react'
 import { AddCategory, GifGrid } from './components';
 
+
+
 export const GifExpertApp = () => {
 
     const [categories, setCategories] = useState(['One Piece']);

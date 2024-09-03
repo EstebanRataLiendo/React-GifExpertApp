@@ -8,7 +8,7 @@ Preguntamos si isLoading es true, renderizamos <h2>
 Retornamos un <div> con formato de css y mapeamos las imagenes tomadas del hook
 En el mapeo usamos el componente GifItem para traer y renderizar las propiedades url, id y title
 */
-
+import PropTypes from 'prop-types'
 import { GifItem } from "./";
 import { useFetchGifs } from "../hooks/useFetchGifs";
 
@@ -34,4 +34,8 @@ export const GifGrid = ({category}) => {
             </div>
         </>
     )
+}
+
+GifGrid.propTypes = {
+    category: PropTypes.string.isRequired
 }

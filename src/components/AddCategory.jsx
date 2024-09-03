@@ -1,7 +1,7 @@
 /*
 Componente que permite tomar el Enter y retornar un formulario con un input
 Importamos el useState.
-Exportamos la app y desestructuramos la propiedad "onNewCategory" de la app principal GifExpertApp
+Exportamos la app y desestructuramos la propiedad "onNewCategory" de la app principal GifExpertApp, la cual a su vez es una función
 Usamos useState para retornar un valor y actualizarlo.
 -onInputChange (la constante será igual al resultado de una función_
 la cual toma cada cambio del setInputValue y la actualiza luego en el input [onChange])
@@ -16,6 +16,7 @@ Retornamos lo que vamos a renderizar:
     manejador de evento onChange que ejecuta onInputChange (sin esto no nos deja escribir en el input)
 */
 import { useState } from "react"
+import PropTypes from 'prop-types'
 
 export const AddCategory = ({onNewCategory}) => {
 
@@ -24,7 +25,7 @@ export const AddCategory = ({onNewCategory}) => {
     const onInputChange = (event) => {
         setInputValue(event.target.value)
     }
-    const onSubmit= (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
         if (inputValue.trim().length<=1) return;
         onNewCategory(inputValue.trim())
@@ -32,7 +33,7 @@ export const AddCategory = ({onNewCategory}) => {
     }
     return (
         <>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} aria-label="form">
                 <input
                     type="text"
                     placeholder="Buscar gifs"
@@ -44,3 +45,6 @@ export const AddCategory = ({onNewCategory}) => {
             )
 }
 
+AddCategory.propTypes= {
+    onNewCategory: PropTypes.func.isRequired
+}
